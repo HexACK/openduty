@@ -67,7 +67,7 @@ class Service(models.Model):
     Incidents are representations of a malfunction in the system.
     """
     name = models.CharField(max_length=80, unique=True)
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    id = UUIDField(primary_key=True, auto=True)
     retry = models.IntegerField(blank=True, null=True)
     policy = models.ForeignKey(SchedulePolicy, blank=True, null=True)
     escalate_after = models.IntegerField(blank=True, null=True)
